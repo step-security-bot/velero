@@ -95,7 +95,11 @@ linters-settings:
   nestif:
     # minimal complexity of if statements to report, 5 by default
     min-complexity: 4
-  goconst:
+  gci:
+    sections:
+      - standard # Standard section: captures all standard packages.
+      - default # Default section: contains all imports that could not be matched to another section type.
+      - prefix(github.com/vmware-tanzu/velero) # Custom section: groups all imports with the specified Prefix.
     # minimal length of string constant, 3 by default
     min-len: 3
     # minimal occurrences count to trigger, 3 by default
@@ -140,10 +144,6 @@ linters-settings:
   gofmt:
     # simplify code: gofmt with `-s` option, true by default
     simplify: true
-  goimports:
-    # put imports beginning with prefix after 3rd-party packages;
-    # it's a comma-separated list of prefixes
-    local-prefixes: github.com/org/project
   golint:
     # minimal confidence for issues, default is 0.8
     min-confidence: 0.8
@@ -311,10 +311,10 @@ linters:
     - errcheck
     - exportloopref
     - errchkjson
+    - gci
     - goconst
     - gofmt
     - goheader
-    - goimports
     - goprintffuncname
     - gosec
     - gosimple
