@@ -561,7 +561,7 @@ func TestReconcile(t *testing.T) {
 				},
 			})
 
-			assert.Equal(t, actualResult, test.expectedRequeue)
+			assert.Equal(t, test.expectedRequeue, actualResult)
 			if test.expectedErrMsg == "" {
 				require.NoError(t, err)
 			} else {
