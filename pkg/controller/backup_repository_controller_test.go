@@ -478,9 +478,9 @@ func TestGetBackupRepositoryConfig(t *testing.T) {
 			result, err := getBackupRepositoryConfig(context.Background(), fakeClient, test.congiName, velerov1api.DefaultNamespace, test.repoName, test.repoType, velerotest.NewLogger())
 
 			if test.expectedErr != "" {
-				assert.EqualError(t, err, test.expectedErr)
+				require.EqualError(t, err, test.expectedErr)
 			} else {
-				assert.NoError(t, err)
+				require.NoError(t, err)
 				assert.Equal(t, test.expectedResult, result)
 			}
 		})

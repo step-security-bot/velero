@@ -208,7 +208,7 @@ func Test_newServer(t *testing.T) {
 		uploaderType: uploader.ResticType,
 		clientQPS:    -1,
 	}, logger)
-	assert.Error(t, err)
+	require.Error(t, err)
 
 	// invalid clientBurst
 	factory.On("SetClientQPS", mock.Anything).Return()
