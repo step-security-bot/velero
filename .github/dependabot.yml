@@ -23,14 +23,26 @@ updates:
   - package-ecosystem: docker
     directory: /
     schedule:
-      interval: daily
+      interval: "weekly"
+    labels:
+      - "Dependencies"
+      - "docker"
+      - "kind/changelog-not-required"
 
   - package-ecosystem: docker
     directory: /hack/build-image
     schedule:
-      interval: daily
+      interval: "weekly"
+    labels:
+      - "Dependencies"
+      - "docker"
+      - "kind/changelog-not-required"
 
   - package-ecosystem: docker
     directory: /site
     schedule:
-      interval: daily
+      interval: "weekly"
+    labels:
+      - "Dependencies"
+      - "docker"
+      - "kind/changelog-not-required"
